@@ -18,18 +18,10 @@ Array.prototype.meuFilter = function (fn) {
 
 Array.prototype.meuReduce = function (fn, valorInicial) {
     
-    let acumuladorAtual, interacaoInicial;
-
-    if(valorInicial === 0 || valorInicial) {
-        acumuladorAtual = valorInicial;
-        interacaoInicial = 0;
-    } else {
-        acumuladorAtual = this[0];
-        interacaoInicial = 1;
-    }
+    let [acumuladorAtual, interacaoInicial] = valorInicial === 0 || valorInicial 
+    ? [valorInicial, 0] : [this[0], 1];
 
     for(let i = interacaoInicial; i < this.length; i++) {
-
         acumuladorAtual = fn(acumuladorAtual,this[i], i, this);
     }
 
